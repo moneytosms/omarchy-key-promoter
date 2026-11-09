@@ -28,9 +28,9 @@ Item {
   readonly property bool barVisible: shell && shell.bar ? !shell.bar.barHidden : true
   readonly property int barSize: shell && shell.bar && barVisible ? Math.max(0, shell.bar.barSize) : Style.bar.sizeHorizontal
   // Clear the bar only on the edge the toast shares with it.
-  function margin(edge) { return Style.space(12) + (barPosition === edge && barVisible ? barSize + Style.gapsOut : 0) }
-  readonly property int edgeMargin: margin(vertical)
-  readonly property int sideMargin: margin(horizontal)
+  function edgeInset(edge) { return Style.space(12) + (barPosition === edge && barVisible ? barSize + Style.gapsOut : 0) }
+  readonly property int edgeMargin: edgeInset(vertical)
+  readonly property int sideMargin: edgeInset(horizontal)
 
   readonly property int pad: Style.space(12)
   readonly property int slide: Style.space(8)
